@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <title>Теория: тип number в JavaScript</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="theory-container">
+    <h1>📘 Тип <code>number</code> в JavaScript</h1>
+
+    <hr>
+
+    <h2>1. Что такое тип <code>number</code></h2>
+    <p>
+      В JavaScript тип <code>number</code> используется <strong>для всех чисел</strong>.
+    </p>
+    <p><strong>Важно:</strong> в JS нет отдельных типов для целых и дробных чисел — <br>
+      <strong>все числа имеют тип <code>number</code></strong>.
+    </p>
+
+    <pre><code>10
+3
+-5
+0
+3.14</code></pre>
+
+    <hr>
+
+    <h2>2. Как выглядит <code>number</code></h2>
+
+    <h3>2.1 Целые числа</h3>
+    <pre><code>1
+5
+100
+-20</code></pre>
+
+    <h3>2.2 Дробные числа</h3>
+    <pre><code>3.5
+0.1
+10.25</code></pre>
+
+    <p>📌 В JavaScript используется <strong>точка</strong>, а не запятая.</p>
+
+    <pre><code>// ❌ Ошибка
+3,5</code></pre>
+
+    <hr>
+
+    <h2>3. Использование <code>number</code></h2>
+
+    <pre><code>console.log(10);
+console.log(5 + 5);
+console.log(10 - 3);
+console.log(4 * 2);
+console.log(8 / 2);</code></pre>
+
+    <p>📌 Все результаты имеют тип <code>number</code>.</p>
+
+    <hr>
+
+    <h2>4. Основные операции</h2>
+
+    <table>
+      <tr>
+        <th>Операция</th>
+        <th>Пример</th>
+        <th>Результат</th>
+      </tr>
+      <tr>
+        <td>Сложение</td>
+        <td><code>5 + 3</code></td>
+        <td>8</td>
+      </tr>
+      <tr>
+        <td>Вычитание</td>
+        <td><code>5 - 3</code></td>
+        <td>2</td>
+      </tr>
+      <tr>
+        <td>Умножение</td>
+        <td><code>5 * 3</code></td>
+        <td>15</td>
+      </tr>
+      <tr>
+        <td>Деление</td>
+        <td><code>6 / 3</code></td>
+        <td>2</td>
+      </tr>
+    </table>
+
+    <hr>
+
+    <h2>5. Деление — важная тонкость</h2>
+
+    <pre><code>5 / 2</code></pre>
+
+    <p>👉 Результат:</p>
+
+    <pre><code>2.5</code></pre>
+
+    <p>📌 Деление в JS <strong>может дать дробное число</strong>.</p>
+
+    <hr>
+
+    <h2>6. Отрицательные числа</h2>
+
+    <pre><code>-10
+-3.5</code></pre>
+
+    <p>📌 Минус — часть числа.</p>
+
+    <hr>
+
+    <h2>7. Специальные значения</h2>
+
+    <h3>7.1 Infinity</h3>
+    <pre><code>console.log(1 / 0);</code></pre>
+    <pre><code>Infinity</code></pre>
+
+    <h3>7.2 -Infinity</h3>
+    <pre><code>console.log(-1 / 0);</code></pre>
+    <pre><code>-Infinity</code></pre>
+
+    <h3>7.3 NaN</h3>
+    <pre><code>console.log(0 / 0);</code></pre>
+    <pre><code>NaN</code></pre>
+
+    <p>📌 <code>NaN</code> — это тоже тип <code>number</code>.</p>
+
+    <hr>
+
+    <h2>8. Частые ошибки</h2>
+
+    <h3>❌ Запятая вместо точки</h3>
+    <pre><code>let x = 3,5;</code></pre>
+
+    <h3>❌ Деление на ноль</h3>
+    <pre><code>10 / 0; // Infinity</code></pre>
+
+    <h3>❌ Неточные дроби</h3>
+    <pre><code>console.log(0.1 + 0.2);</code></pre>
+    <pre><code>0.30000000000000004</code></pre>
+
+    <hr>
+
+    <h2>9. Проверка типа</h2>
+
+    <pre><code>console.log(typeof 10);
+console.log(typeof 3.14);
+console.log(typeof Infinity);
+console.log(typeof NaN);</code></pre>
+
+    <p>📌 <code>typeof</code> всегда вернёт <code>"number"</code>.</p>
+
+    <hr>
+
+    <h2>10. Полезные правила</h2>
+    <ul>
+      <li>Все числа — <code>number</code></li>
+      <li>Используется точка</li>
+      <li>Деление может дать дробь</li>
+      <li><code>Infinity</code> и <code>NaN</code> — тоже числа</li>
+      <li>Дробные числа могут быть неточными</li>
+    </ul>
+
+    <hr>
+
+    <h2>11. Итог</h2>
+    <p>
+      💡 <strong>Тип <code>number</code> — основа всех вычислений в JavaScript.</strong><br>
+      Понимание его особенностей избавляет от множества ошибок.
+    </p>
+
+    <p>
+      <a href="index.html">⬅ Вернуться к списку тем</a>
+    </p>
+  </div>
+</body>
+</html>
