@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <title>JavaScript чек-лист</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="container">
+    <h1>✅ JavaScript чек-лист</h1>
+    <p>Отмечай темы, которые уже изучил — прогресс сохраняется автоматически</p>
+
+    <div class="progress-container">
+      <div class="progress-bar" id="progress-bar"></div>
+      <span id="progress-text">0%</span>
+    </div>
+
+    <div id="checklist">
+
+      <!-- 🟢 БАЗА -->
+      <section>
+        <h2>🟢 БАЗА</h2>
+        <div class="item">
+          <label><input type="checkbox" data-id="js-what"> Что такое JavaScript и где он выполняется</label>
+          <div class="links">
+            <a href="https://learn.javascript.ru/intro" target="_blank" class="teoria">📖 Теория</a>
+            <a href="#" target="_blank" class="zadanie">📝 Задание</a>
+          </div>
+        </div>
+        <div class="item">
+          <label><input type="checkbox" data-id="js-connect"> Подключение JS к HTML (&lt;script src=""&gt;)</label>
+          <div class="links">
+            <a href="https://learn.javascript.ru/script-async-defer" target="_blank" class="teoria">📖 Теория</a>
+            <a href="#" target="_blank" class="zadanie">📝 Задание</a>
+          </div>
+        </div>
+        <div class="item">
+          <label><input type="checkbox" data-id="console-log"> console.log()</label>
+          <div class="links">
+            <a href="https://learn.javascript.ru/logical-operators" target="_blank" class="teoria">📖 Теория</a>
+            <a href="#" target="_blank" class="zadanie">📝 Задание</a>
+          </div>
+        </div>
+        <div class="item">
+          <label><input type="checkbox" data-id="let-const"> let, const</label>
+          <div class="links">
+            <a href="https://learn.javascript.ru/variables" target="_blank" class="teoria">📖 Теория</a>
+            <a href="#" target="_blank" class="zadanie">📝 Задание</a>
+          </div>
+        </div>
+        <div class="item">
+          <label><input type="checkbox" data-id="number"> Тип number</label>
+          <div class="links">
+            <a href="https://learn.javascript.ru/types#number" target="_blank" class="teoria">📖 Теория</a>
+            <a href="#" target="_blank" class="zadanie">📝 Задание</a>
+          </div>
+        </div>
+        <div class="item">
+          <label><input type="checkbox" data-id="string"> Тип string</label>
+          <div class="links">
+            <a href="https://learn.javascript.ru/types#string" target="_blank" class="teoria">📖 Теория</a>
+            <a href="#" target="_blank" class="zadanie">📝 Задание</a>
+          </div>
+        </div>
+        <div class="item">
+          <label><input type="checkbox" data-id="boolean"> Тип boolean</label>
+          <div class="links">
+            <a href="https://learn.javascript.ru/types#boolean" target="_blank" class="teoria">📖 Теория</a>
+            <a href="#" target="_blank" class="zadanie">📝 Задание</a>
+          </div>
+        </div>
+        <div class="item">
+          <label><input type="checkbox" data-id="operators"> Операторы + - * /</label>
+          <div class="links">
+            <a href="https://learn.javascript.ru/operators" target="_blank" class="teoria">📖 Теория</a>
+            <a href="#" target="_blank" class="zadanie">📝 Задание</a>
+          </div>
+        </div>
+        <div class="item">
+          <label><input type="checkbox" data-id="if-else"> if / else</label>
+          <div class="links">
+            <a href="https://learn.javascript.ru/ifelse" target="_blank" class="teoria">📖 Теория</a>
+            <a href="#" target="_blank" class="zadanie">📝 Задание</a>
+          </div>
+        </div>
+        <div class="item">
+          <label><input type="checkbox" data-id="functions"> Функции</label>
+          <div class="links">
+            <a href="https://learn.javascript.ru/function-basics" target="_blank" class="teoria">📖 Теория</a>
+            <a href="#" target="_blank" class="zadanie">📝 Задание</a>
+          </div>
+        </div>
+        <div class="item">
+          <label><input type="checkbox" data-id="arrow-functions"> Стрелочные функции () => {}</label>
+          <div class="links">
+            <a href="https://learn.javascript.ru/arrow-functions" target="_blank" class="teoria">📖 Теория</a>
+            <a href="#" target="_blank" class="zadanie">📝 Задание</a>
+          </div>
+        </div>
+      </section>
+
+      <!-- 🟢 DOM -->
+      <section>
+        <h2>🟢 DOM (связка JS + HTML)</h2>
+        <div class="item"><label><input type="checkbox" data-id="document"> document</label>
+          <div class="links"><a href="https://learn.javascript.ru/document" target="_blank" class="teoria">📖 Теория</a><a href="#" target="_blank" class="zadanie">📝 Задание</a></div>
+        </div>
+        <div class="item"><label><input type="checkbox" data-id="querySelector"> querySelector</label>
+          <div class="links"><a href="https://learn.javascript.ru/queryselector" target="_blank" class="teoria">📖 Теория</a><a href="#" target="_blank" class="zadanie">📝 Задание</a></div>
+        </div>
+        <div class="item"><label><input type="checkbox" data-id="querySelectorAll"> querySelectorAll</label>
+          <div class="links"><a href="https://learn.javascript.ru/queryselector" target="_blank" class="teoria">📖 Теория</a><a href="#" target="_blank" class="zadanie">📝 Задание</a></div>
+        </div>
+        <div class="item"><label><input type="checkbox" data-id="get-by-class-id"> Получение элемента по классу / id</label>
+          <div class="links"><a href="https://learn.javascript.ru/id-class" target="_blank" class="teoria">📖 Теория</a><a href="#" target="_blank" class="zadanie">📝 Задание</a></div>
+        </div>
+        <div class="item"><label><input type="checkbox" data-id="textContent"> textContent</label>
+          <div class="links"><a href="https://learn.javascript.ru/innerhtml-textcontent" target="_blank" class="teoria">📖 Теория</a><a href="#" target="_blank" class="zadanie">📝 Задание</a></div>
+        </div>
+        <div class="item"><label><input type="checkbox" data-id="innerHTML"> innerHTML</label>
+          <div class="links"><a href="https://learn.javascript.ru/innerhtml-textcontent" target="_blank" м>📖 Теория</a><a href="#" target="_blank" class="zadanie">📝 Задание</a></div>
+        </div>
+        <div class="item"><label><input type="checkbox" data-id="attributes"> Изменение атрибутов</label>
+          <div class="links"><a href="https://learn.javascript.ru/attributes" target="_blank" class="teoria">📖 Теория</a><a href="#" target="_blank" class="zadanie">📝 Задание</a></div>
+        </div>
+        <div class="item"><label><input type="checkbox" data-id="style"> Изменение стилей через style</label>
+          <div class="links"><a href="https://learn.javascript.ru/styles-and-classes" target="_blank" class="teoria">📖 Теория</a><a href="#" target="_blank" class="zadanie">📝 Задание</a></div>
+        </div>
+      </section>
+
+      <!-- 🟢 События -->
+      <section>
+        <h2>🟢 События (интерактивность)</h2>
+        <div class="item"><label><input type="checkbox" data-id="addEventListener"> addEventListener</label>
+          <div class="links"><a href="https://learn.javascript.ru/introduction-browser-events" target="_blank" class="teoria">📖 Теория</a><a href="#" target="_blank" class="zadanie">📝 Задание</a></div>
+        </div>
+        <div class="item"><label><input type="checkbox" data-id="click"> Событие click</label>
+          <div class="links"><a href="https://learn.javascript.ru/introduction-browser-events" target="_blank" class="teoria">📖 Теория</a><a href="#" target="_blank" class="zadanie">📝 Задание</a></div>
+        </div>
+        <div class="item"><label><input type="checkbox" data-id="input"> Событие input</label>
+          <div class="links"><a href="https://learn.javascript.ru/input-change" target="_blank" class="teoria">📖 Теория</a><a href="#" target="_blank" class="zadanie">📝 Задание</a></div>
+        </div>
+        <div class="item"><label><input type="checkbox" data-id="submit"> Событие submit</label>
+          <div class="links"><a href="https://learn.javascript.ru/forms-submit" target="_blank" class="teoria">📖 Теория</a><a href="#" target="_blank" class="zadanie">📝 Задание</a></div>
+        </div>
+        <div class="item"><label><input type="checkbox" data-id="event"> Объект события event</label>
+          <div class="links"><a href="https://learn.javascript.ru/events" target="_blank" class="teoria">📖 Теория</a><a href="#" target="_blank" class="zadanie">📝 Задание</a></div>
+        </div>
+        <div class="item"><label><input type="checkbox" data-id="preventDefault"> preventDefault()</label>
+          <div class="links"><a href="https://learn.javascript.ru/events" target="_blank" class="teoria">📖 Теория</a><a href="#" target="_blank" class="zadanie">📝 Задание</a></div>
+        </div>
+      </section>
+
+      <!-- Дальше остальные секции можно добавить по такому же шаблону -->
+
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
