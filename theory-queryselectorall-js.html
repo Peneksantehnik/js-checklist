@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <title>Теория: querySelectorAll в JavaScript</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="theory-container">
+    <h1>📘 Теория по <code>querySelectorAll</code> в JavaScript</h1>
+    <hr>
+
+    <h2>1. Что такое <code>querySelectorAll</code></h2>
+    <p>
+      <code>querySelectorAll</code> — это метод объекта <code>document</code> (или любого элемента), который позволяет
+      <strong>найти все элементы на странице, соответствующие CSS-селектору</strong>.
+    </p>
+    <p>Проще:</p>
+    <ul>
+      <li><code>querySelector</code> возвращает <strong>только первый элемент</strong></li>
+      <li><code>querySelectorAll</code> возвращает <strong>все подходящие элементы</strong> в виде NodeList</li>
+    </ul>
+
+    <hr>
+
+    <h2>2. Синтаксис</h2>
+    <pre><code>const элементы = document.querySelectorAll("селектор");</code></pre>
+    <ul>
+      <li>"селектор" — как в CSS:
+        <ul>
+          <li><code>#id</code> — по ID</li>
+          <li><code>.class</code> — по классу</li>
+          <li><code>tag</code> — по тегу</li>
+          <li><code>[attr=value]</code> — по атрибуту</li>
+          <li>Комбинированные селекторы: <code>div.text</code>, <code>#container p:first-child</code></li>
+        </ul>
+      </li>
+      <li><code>элементы</code> — NodeList, похожий на массив, но не совсем массив</li>
+    </ul>
+
+    <hr>
+
+    <h2>3. Примеры использования</h2>
+
+    <h3>3.1 По классу</h3>
+    <pre><code>&lt;p class="text"&gt;Первый&lt;/p&gt;
+&lt;p class="text"&gt;Второй&lt;/p&gt;
+&lt;p class="text"&gt;Третий&lt;/p&gt;
+
+const paragraphs = document.querySelectorAll(".text");
+console.log(paragraphs); // NodeList(3)
+console.log(paragraphs[0].innerText); // "Первый"</code></pre>
+
+    <h3>3.2 По тегу</h3>
+    <pre><code>const allP = document.querySelectorAll("p");
+console.log(allP.length); // количество &lt;p&gt; на странице</code></pre>
+
+    <h3>3.3 Комбинированный селектор</h3>
+    <pre><code>&lt;div id="container"&gt;
+  &lt;p class="text"&gt;Первый&lt;/p&gt;
+  &lt;p class="text"&gt;Второй&lt;/p&gt;
+&lt;/div&gt;
+
+const firstContainerP = document.querySelectorAll("#container .text");
+console.log(firstContainerP.length); // 2
+console.log(firstContainerP[1].innerText); // "Второй"</code></pre>
+
+    <h3>3.4 По атрибуту</h3>
+    <pre><code>&lt;input type="text" placeholder="Имя"&gt;
+&lt;input type="text" placeholder="Фамилия"&gt;
+
+const inputs = document.querySelectorAll("input[type='text']");
+console.log(inputs.length); // 2</code></pre>
+
+    <hr>
+
+    <h2>4. NodeList и его особенности</h2>
+    <ul>
+      <li>NodeList похож на массив, но это не массив</li>
+      <li>Методы массива (например <code>map</code>) напрямую не работают</li>
+      <li>Перебирать можно через <code>forEach</code>, <code>for</code> или <code>for…of</code></li>
+    </ul>
+    <pre><code>const paragraphs = document.querySelectorAll(".text");
+
+paragraphs.forEach(p => {
+    p.style.color = "red"; // красим все абзацы в красный
+});
+
+for (let i = 0; i &lt; paragraphs.length; i++) {
+    console.log(paragraphs[i].innerText);
+}</code></pre>
+
+    <hr>
+
+    <h2>5. Изменение элементов через <code>querySelectorAll</code></h2>
+    <pre><code>const paragraphs = document.querySelectorAll(".text");
+
+paragraphs.forEach(p =&gt; {
+    p.innerText = "Изменённый текст";
+    p.style.backgroundColor = "yellow";
+    p.classList.add("active");
+});</code></pre>
+
+    <hr>
+
+    <h2>6. Частые ошибки новичков</h2>
+
+    <h3>❌ 1. Пытаются работать с NodeList как с одним элементом</h3>
+    <pre><code>const paragraphs = document.querySelectorAll(".text");
+paragraphs.innerText = "Новый текст"; // ❌ ошибка</code></pre>
+    <p>✅ Нужно:</p>
+    <pre><code>paragraphs.forEach(p =&gt; p.innerText = "Новый текст");</code></pre>
+
+    <h3>❌ 2. Использование методов массива напрямую</h3>
+    <pre><code>const paragraphs = document.querySelectorAll(".text");
+paragraphs.map(p =&gt; p.innerText); // ❌ ошибка</code></pre>
+    <p>✅ NodeList преобразуем в массив:</p>
+    <pre><code>const paragraphsArray = Array.from(paragraphs);
+paragraphsArray.map(p =&gt; p.innerText);</code></pre>
+
+    <h3>❌ 3. Несуществующий селектор</h3>
+    <pre><code>const items = document.querySelectorAll(".nonexistent");
+console.log(items.length); // 0</code></pre>
+    <p>✅ NodeList вернёт пустую коллекцию, ошибки не будет.</p>
+
+    <hr>
+
+    <h2>7. Отличие <code>querySelector</code> от <code>querySelectorAll</code></h2>
+    <table>
+      <tr>
+        <th>Метод</th>
+        <th>Что возвращает</th>
+        <th>Особенности</th>
+      </tr>
+      <tr>
+        <td>querySelector</td>
+        <td>первый элемент</td>
+        <td>если элементов несколько, остальные игнорируются</td>
+      </tr>
+      <tr>
+        <td>querySelectorAll</td>
+        <td>все элементы (NodeList)</td>
+        <td>можно перебрать, но методы массива нужно применять через Array.from()</td>
+      </tr>
+    </table>
+
+    <hr>
+
+    <h2>8. Стрелочные функции + querySelectorAll</h2>
+    <pre><code>const buttons = document.querySelectorAll(".btn");
+
+buttons.forEach(btn =&gt; {
+    btn.addEventListener("click", () =&gt; {
+        console.log("Кнопка нажата");
+    });
+});</code></pre>
+    <p>
+      * Можно добавить обработчик всем кнопкам сразу.<br>
+      * Удобно для динамических списков элементов.
+    </p>
+
+    <hr>
+
+    <h2>9. Итог</h2>
+    <ul>
+      <li><code>querySelectorAll</code> — для поиска <strong>всех элементов</strong> по CSS-селектору</li>
+      <li>Возвращает NodeList (похож на массив)</li>
+      <li>NodeList можно перебирать через <code>forEach</code>, <code>for</code>, <code>for…of</code></li>
+      <li>Можно изменять текст, HTML, стили и классы для всех элементов</li>
+      <li>Если селектор не найден, NodeList пустой, ошибок нет</li>
+    </ul>
+    <p>💡 Понимание <code>querySelectorAll</code> позволяет управлять <strong>всеми элементами на странице</strong> одновременно.</p>
+
+    <hr>
+
+    <p>
+      <a href="index.html">⬅ Вернуться к списку тем</a>
+    </p>
+  </div>
+</body>
+</html>

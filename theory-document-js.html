@@ -7,149 +7,139 @@
 </head>
 <body>
   <div class="theory-container">
-    <h1>📝 Теория по <code>document</code> в JavaScript</h1>
+    <h1>🧠 Работа с <code>document</code> в JavaScript</h1>
 
     <hr>
 
-    <!-- Раздел 1 -->
-    <div class="task">
-      <h2>1. Что такое <code>document</code></h2>
-      <p><code>document</code> — это объект, который представляет всю веб-страницу (HTML-документ) в JavaScript.</p>
-      <p>Проще:</p>
-      <ul>
-        <li>HTML-страница — как блокнот с текстом и картинками.</li>
-        <li><code>document</code> — интерфейс, который позволяет JS читать и изменять этот блокнот.</li>
-      </ul>
-    </div>
+    <h2>1. Что такое <code>document</code></h2>
+    <p><code>document</code> — это объект, который представляет всю веб-страницу (HTML-документ) в JavaScript.</p>
+    <p>Проще:</p>
+    <ul>
+      <li>HTML-страница — как блокнот с текстом и картинками.</li>
+      <li><code>document</code> — интерфейс, который позволяет JS читать и изменять этот блокнот.</li>
+    </ul>
 
-    <!-- Раздел 2 -->
-    <div class="task">
-      <h2>2. Что можно делать с <code>document</code></h2>
-      <ul>
-        <li>Изменять текст на странице</li>
-        <li>Изменять стили элементов</li>
-        <li>Создавать новые элементы</li>
-        <li>Удалять элементы</li>
-        <li>Слушать события (клики, ввод текста)</li>
-      </ul>
-    </div>
+    <hr>
 
-    <!-- Раздел 3 -->
-    <div class="task">
-      <h2>3. Свойства <code>document</code></h2>
+    <h2>2. Что можно делать с <code>document</code></h2>
+    <ul>
+      <li>Изменять текст на странице</li>
+      <li>Изменять стили элементов</li>
+      <li>Создавать новые элементы</li>
+      <li>Удалять элементы</li>
+      <li>Слушать события (клики, ввод текста)</li>
+    </ul>
 
-      <h3>3.1 <code>document.title</code></h3>
-      <pre><code>console.log(document.title); // вывод текущего заголовка
+    <hr>
+
+    <h2>3. Свойства <code>document</code></h2>
+
+    <h3>3.1 <code>document.title</code></h3>
+    <pre><code>console.log(document.title); // текущий заголовок страницы
 document.title = "Новая страница"; // меняем заголовок</code></pre>
 
-      <h3>3.2 <code>document.body</code></h3>
-      <pre><code>console.log(document.body);
+    <h3>3.2 <code>document.body</code></h3>
+    <pre><code>console.log(document.body);
 document.body.style.backgroundColor = "lightblue";</code></pre>
 
-      <h3>3.3 <code>document.head</code></h3>
-      <pre><code>console.log(document.head);</code></pre>
+    <h3>3.3 <code>document.head</code></h3>
+    <pre><code>console.log(document.head);</code></pre>
 
-      <h3>3.4 <code>document.all</code></h3>
-      <pre><code>console.log(document.all);</code></pre>
-    </div>
+    <h3>3.4 <code>document.all</code></h3>
+    <pre><code>console.log(document.all);</code></pre>
 
-    <!-- Раздел 4 -->
-    <div class="task">
-      <h2>4. Методы <code>document</code> (основные)</h2>
+    <hr>
 
-      <h3>4.1 <code>document.getElementById("id")</code></h3>
-      <pre><code>&lt;div id="myDiv"&gt;Привет&lt;/div&gt;
+    <h2>4. Методы <code>document</code></h2>
+
+    <h3>4.1 <code>document.getElementById("id")</code></h3>
+    <pre><code>&lt;div id="myDiv"&gt;Привет&lt;/div&gt;
 
 const myDiv = document.getElementById("myDiv");
 console.log(myDiv.innerText); // "Привет"</code></pre>
 
-      <h3>4.2 <code>document.getElementsByClassName("class")</code></h3>
-      <pre><code>&lt;p class="text"&gt;Текст 1&lt;/p&gt;
+    <h3>4.2 <code>document.getElementsByClassName("class")</code></h3>
+    <pre><code>&lt;p class="text"&gt;Текст 1&lt;/p&gt;
 &lt;p class="text"&gt;Текст 2&lt;/p&gt;
 
 const texts = document.getElementsByClassName("text");
 console.log(texts[0].innerText); // "Текст 1"
 console.log(texts[1].innerText); // "Текст 2"</code></pre>
 
-      <h3>4.3 <code>document.getElementsByTagName("tag")</code></h3>
-      <pre><code>const paragraphs = document.getElementsByTagName("p");
+    <h3>4.3 <code>document.getElementsByTagName("tag")</code></h3>
+    <pre><code>const paragraphs = document.getElementsByTagName("p");
 console.log(paragraphs.length); // количество &lt;p&gt; на странице</code></pre>
-    </div>
 
-    <!-- Раздел 5 -->
-    <div class="task">
-      <h2>5. Создание и изменение элементов</h2>
+    <hr>
 
-      <h3>5.1 Создание нового элемента</h3>
-      <pre><code>const newDiv = document.createElement("div");
+    <h2>5. Создание, изменение и удаление элементов</h2>
+
+    <h3>5.1 Создание нового элемента</h3>
+    <pre><code>const newDiv = document.createElement("div");
 newDiv.innerText = "Привет, я новый div!";
 document.body.appendChild(newDiv);</code></pre>
 
-      <h3>5.2 Изменение существующего элемента</h3>
-      <pre><code>&lt;p id="text"&gt;Старый текст&lt;/p&gt;
+    <h3>5.2 Изменение существующего элемента</h3>
+    <pre><code>&lt;p id="text"&gt;Старый текст&lt;/p&gt;
 
 const p = document.getElementById("text");
 p.innerText = "Новый текст";
 p.style.color = "red";</code></pre>
 
-      <h3>5.3 Удаление элемента</h3>
-      <pre><code>const p = document.getElementById("text");
+    <h3>5.3 Удаление элемента</h3>
+    <pre><code>const p = document.getElementById("text");
 p.remove();</code></pre>
-    </div>
 
-    <!-- Раздел 6 -->
-    <div class="task">
-      <h2>6. Важные свойства элементов</h2>
-      <ul>
-        <li><code>innerText</code> — текст внутри элемента</li>
-        <li><code>innerHTML</code> — текст + HTML внутри элемента</li>
-        <li><code>style</code> — объект для изменения стилей</li>
-        <li><code>classList</code> — список классов элемента</li>
-      </ul>
-      <pre><code>const div = document.getElementById("myDiv");
+    <hr>
+
+    <h2>6. Важные свойства элементов</h2>
+    <ul>
+      <li><code>innerText</code> — текст внутри элемента</li>
+      <li><code>innerHTML</code> — текст + HTML внутри элемента</li>
+      <li><code>style</code> — объект для изменения стилей</li>
+      <li><code>classList</code> — список классов элемента</li>
+    </ul>
+    <pre><code>const div = document.getElementById("myDiv");
 div.innerText = "Привет!";
 div.style.backgroundColor = "yellow";
 div.classList.add("active");</code></pre>
-    </div>
 
-    <!-- Раздел 7 -->
-    <div class="task">
-      <h2>7. Ошибки новичков</h2>
+    <hr>
 
-      <h3>❌ 1. Пытаются изменить элемент, которого ещё нет</h3>
-      <pre><code>const div = document.getElementById("myDiv");
+    <h2>7. Ошибки новичков</h2>
+
+    <h3>❌ Пытаются изменить элемент, которого ещё нет</h3>
+    <pre><code>const div = document.getElementById("myDiv");
 div.innerText = "Привет!"; // ❌ ошибка</code></pre>
-      <p>✅ Нужно:</p>
-      <pre><code>const div = document.getElementById("myDiv");
+    <p>✅ Нужно:</p>
+    <pre><code>const div = document.getElementById("myDiv");
 if (div) {
     div.innerText = "Привет!";
 }</code></pre>
 
-      <h3>❌ 2. Путают коллекцию и один элемент</h3>
-      <pre><code>const texts = document.getElementsByClassName("text");
+    <h3>❌ Путают коллекцию и один элемент</h3>
+    <pre><code>const texts = document.getElementsByClassName("text");
 texts.innerText = "Привет"; // ❌ ошибка
 texts[0].innerText = "Привет"; // ✅ правильно</code></pre>
 
-      <h3>❌ 3. Пишут код до загрузки DOM</h3>
-      <pre><code>const p = document.getElementById("text"); // ❌ может быть null</code></pre>
-      <p>✅ Нужно:</p>
-      <pre><code>window.onload = () =&gt; {
+    <h3>❌ Пишут код до загрузки DOM</h3>
+    <pre><code>const p = document.getElementById("text"); // ❌ может быть null</code></pre>
+    <p>✅ Нужно:</p>
+    <pre><code>window.onload = () =&gt; {
     const p = document.getElementById("text");
     p.innerText = "Страница загружена";
 };</code></pre>
-    </div>
 
-    <!-- Раздел 8 -->
-    <div class="task">
-      <h2>8. Итог</h2>
-      <ul>
-        <li>Чтение элементов: <code>getElementById</code>, <code>getElementsByClassName</code>, <code>getElementsByTagName</code></li>
-        <li>Создание и удаление: <code>createElement</code>, <code>appendChild</code>, <code>remove</code></li>
-        <li>Изменение текста и стилей: <code>innerText</code>, <code>innerHTML</code>, <code>style</code></li>
-        <li>Основной инструмент для интерактивных страниц и событий</li>
-      </ul>
-      <p>💡 Практически вся работа с веб-страницей начинается с <code>document</code>.</p>
-    </div>
+    <hr>
+
+    <h2>8. Итог</h2>
+    <ul>
+      <li>Чтение элементов: <code>getElementById</code>, <code>getElementsByClassName</code>, <code>getElementsByTagName</code></li>
+      <li>Создание и удаление: <code>createElement</code>, <code>appendChild</code>, <code>remove</code></li>
+      <li>Изменение текста и стилей: <code>innerText</code>, <code>innerHTML</code>, <code>style</code></li>
+      <li>Основной инструмент для интерактивных страниц и работы с событиями</li>
+    </ul>
+    <p>💡 Практически вся работа с веб-страницей начинается с <code>document</code>.</p>
 
     <hr>
     <p><a href="index.html">⬅ Вернуться к списку тем</a></p>
