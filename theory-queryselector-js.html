@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <title>Теория: querySelector</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="theory-container">
+    <h1>📌 Теория: <code>querySelector</code></h1>
+
+    <hr>
+
+    <!-- 1 -->
+    <div class="section">
+      <h2>1. Что такое <code>querySelector</code></h2>
+      <p><code>querySelector</code> — это метод объекта <code>document</code> (или любого элемента), который позволяет <strong>найти элемент на странице по CSS-селектору</strong>.</p>
+      <p>Проще: раньше мы использовали <code>getElementById</code> или <code>getElementsByClassName</code>, а <code>querySelector</code> — это универсальный метод, который умеет искать:</p>
+      <ul>
+        <li>по ID</li>
+        <li>по классу</li>
+        <li>по тегу</li>
+        <li>по атрибуту</li>
+        <li>по сложным комбинациям CSS</li>
+      </ul>
+    </div>
+
+    <!-- 2 -->
+    <div class="section">
+      <h2>2. Синтаксис</h2>
+      <pre><code>const элемент = document.querySelector("селектор");</code></pre>
+      <p>Примеры селекторов:</p>
+      <ul>
+        <li><code>#id</code> → элемент с ID</li>
+        <li><code>.class</code> → элемент с классом</li>
+        <li><code>tag</code> → элемент с тегом</li>
+        <li><code>[атрибут]</code> → элемент с атрибутом</li>
+        <li>комбинации, например: <code>div.text</code> или <code>#container p</code></li>
+      </ul>
+    </div>
+
+    <!-- 3 -->
+    <div class="section">
+      <h2>3. Примеры использования</h2>
+
+      <h3>3.1 По ID</h3>
+      <pre><code>&lt;div id="myDiv"&gt;Привет&lt;/div&gt;
+
+const myDiv = document.querySelector("#myDiv");
+console.log(myDiv.innerText); // "Привет"</code></pre>
+
+      <h3>3.2 По классу</h3>
+      <pre><code>&lt;p class="text"&gt;Текст&lt;/p&gt;
+
+const p = document.querySelector(".text");
+console.log(p.innerText); // "Текст"</code></pre>
+      <p>⚠️ Возвращается только первый элемент.</p>
+
+      <h3>3.3 По тегу</h3>
+      <pre><code>const firstP = document.querySelector("p");
+console.log(firstP.innerText);</code></pre>
+
+      <h3>3.4 По атрибуту</h3>
+      <pre><code>&lt;input type="text" placeholder="Имя"&gt;
+
+const input = document.querySelector("[placeholder='Имя']");
+console.log(input.value);</code></pre>
+
+      <h3>3.5 Комбинированный селектор</h3>
+      <pre><code>&lt;div id="container"&gt;
+  &lt;p class="text"&gt;Первый&lt;/p&gt;
+  &lt;p class="text"&gt;Второй&lt;/p&gt;
+&lt;/div&gt;
+
+const firstParagraph = document.querySelector("#container .text");
+console.log(firstParagraph.innerText); // "Первый"</code></pre>
+    </div>
+
+    <!-- 4 -->
+    <div class="section">
+      <h2>4. Изменение элементов через <code>querySelector</code></h2>
+      <pre><code>const div = document.querySelector("#myDiv");
+div.innerText = "Новый текст";
+div.style.color = "red";
+div.classList.add("active");</code></pre>
+    </div>
+
+    <!-- 5 -->
+    <div class="section">
+      <h2>5. Важные особенности <code>querySelector</code></h2>
+      <ol>
+        <li>Возвращает только первый найденный элемент.</li>
+        <li>Селектор как в CSS: <code>#id</code>, <code>.class</code>, <code>tag</code>, <code>[attr=value]</code></li>
+        <li>Можно использовать сложные селекторы, например:
+<pre><code>document.querySelector("div#container p.text:first-child");</code></pre>
+        </li>
+      </ol>
+    </div>
+
+    <!-- 6 -->
+    <div class="section">
+      <h2>6. Частые ошибки новичков</h2>
+
+      <h3>❌ 1. Забытая решётка или точка для ID/класса</h3>
+      <pre><code>const div = document.querySelector("myDiv"); // ❌ ошибка
+const div = document.querySelector("#myDiv"); // ✔ правильно</code></pre>
+
+      <h3>❌ 2. Несуществующий элемент</h3>
+      <pre><code>const p = document.querySelector(".nonexistent");
+console.log(p.innerText); // ❌ ошибка, p = null
+
+const p = document.querySelector(".nonexistent");
+if (p) {
+    console.log(p.innerText);
+} else {
+    console.log("Элемент не найден");
+}</code></pre>
+
+      <h3>❌ 3. Путают <code>querySelector</code> и <code>querySelectorAll</code></h3>
+      <pre><code>const allParagraphs = document.querySelector(".text");
+console.log(allParagraphs.length); // ❌ undefined</code></pre>
+
+      <h3>❌ 4. Неправильный синтаксис CSS</h3>
+      <pre><code>document.querySelector("#container .text:first-child"); // ✔ работает
+document.querySelector("#container .text:first child"); // ❌ ошибка</code></pre>
+    </div>
+
+    <!-- 7 -->
+    <div class="section">
+      <h2>7. Стрелочные функции + <code>querySelector</code></h2>
+      <pre><code>const button = document.querySelector("#myButton");
+button.addEventListener("click", () => {
+    console.log("Кнопка нажата");
+});</code></pre>
+    </div>
+
+    <!-- 8 -->
+    <div class="section">
+      <h2>8. Итог</h2>
+      <ul>
+        <li>Гибкий метод поиска элемента</li>
+        <li>Использует CSS-селекторы</li>
+        <li>Возвращает первый найденный элемент</li>
+        <li>Позволяет изменять текст, HTML, стили, классы</li>
+        <li>Обязательно проверяйте, что элемент существует</li>
+      </ul>
+      <p>💡 Если ты понимаешь, как использовать <code>querySelector</code> с разными селекторами, ты уже можешь делать почти всё для работы с отдельными элементами на странице.</p>
+    </div>
+
+    <p><a href="index.html">⬅ Вернуться к списку тем</a></p>
+  </div>
+</body>
+</html>
