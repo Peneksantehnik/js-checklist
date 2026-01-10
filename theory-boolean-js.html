@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <title>Теория: тип boolean в JavaScript</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="theory-container">
+    <h1>📘 Теория по типу <code>boolean</code> в JavaScript</h1>
+
+    <hr>
+
+    <h2>1. Что такое тип <code>boolean</code></h2>
+    <p>
+      В JavaScript <strong>boolean</strong> — это тип данных, который может принимать только два значения:
+    </p>
+    <pre><code>true  — правда  
+false — ложь</code></pre>
+    <p>
+      <em>Проще:</em> boolean показывает, что что-то верно или неверно, да или нет.
+    </p>
+
+    <hr>
+
+    <h2>2. Создание переменной типа boolean</h2>
+    <p>Пример с <code>let</code>:</p>
+    <pre><code>let isRaining = true;
+console.log(isRaining);</code></pre>
+    <p>
+      <strong>Важно:</strong> <code>isRaining</code> — переменная, <code>true</code> — значение типа boolean.
+    </p>
+
+    <p>Пример с <code>const</code>:</p>
+    <pre><code>const isStudent = false;
+console.log(isStudent);</code></pre>
+    <p>
+      <strong>Важно:</strong> <code>isStudent</code> нельзя менять, потому что <code>const</code>.
+    </p>
+
+    <hr>
+
+    <h2>3. Где используется boolean</h2>
+    <ul>
+      <li>Проверка условий</li>
+      <li>Управление логикой программы</li>
+      <li>Хранение состояния (включён/выключен, есть/нет)</li>
+    </ul>
+    <p>Пример состояния:</p>
+    <pre><code>let lightOn = true;   // свет включён
+let doorOpen = false;  // дверь закрыта</code></pre>
+
+    <hr>
+
+    <h2>4. Отличие boolean от других типов</h2>
+    <ul>
+      <li><strong>string</strong>: "true" — это текст</li>
+      <li><strong>number</strong>: 1 — это число</li>
+      <li><strong>boolean</strong>: true или false — это логическое значение</li>
+    </ul>
+    <pre><code>console.log(typeof true);    // "boolean"
+console.log(typeof "true");  // "string"
+console.log(typeof 1);       // "number"</code></pre>
+    <p><strong>Важно:</strong> true ≠ "true"</p>
+
+    <hr>
+
+    <h2>5. Примеры использования</h2>
+    <pre><code>let isAdult = true;
+let isLoggedIn = false;
+
+console.log("Совершеннолетний?", isAdult);
+console.log("Пользователь вошёл?", isLoggedIn);</code></pre>
+    <p>Результат:</p>
+    <pre><code>Совершеннолетний? true
+Пользователь вошёл? false</code></pre>
+
+    <hr>
+
+    <h2>6. Частые ошибки новичков</h2>
+    <ol>
+      <li>
+        Кавычки вокруг <code>true</code> или <code>false</code>:
+        <pre><code>let isHappy = "true"; // ❌ строка, а не boolean</code></pre>
+        ✅ Правильно:
+        <pre><code>let isHappy = true;</code></pre>
+      </li>
+      <li>
+        Использование чисел вместо boolean:
+        <pre><code>let isAvailable = 1; // ❌ число, а не boolean</code></pre>
+        ✅ Правильно:
+        <pre><code>let isAvailable = true;</code></pre>
+      </li>
+      <li>
+        Забыли прописать значение:
+        <pre><code>let isOpen; // undefined, не boolean</code></pre>
+        ✅ Правильно:
+        <pre><code>let isOpen = false;</code></pre>
+      </li>
+    </ol>
+
+    <hr>
+
+    <h2>7. Проверка типа boolean</h2>
+    <pre><code>console.log(typeof true);  // "boolean"
+console.log(typeof false); // "boolean"</code></pre>
+
+    <hr>
+
+    <h2>8. Boolean в действии (практический смысл)</h2>
+    <pre><code>let hasTicket = true;
+let age = 17;
+
+const canEnter = hasTicket && age >= 18; // && — логическое И
+console.log(canEnter);</code></pre>
+    <p>В данном примере <code>canEnter</code> будет <code>false</code>, потому что возраст &lt; 18.</p>
+
+    <hr>
+
+    <h2>9. Итоги и важные моменты</h2>
+    <ul>
+      <li>Boolean — только два значения: <code>true</code> или <code>false</code></li>
+      <li>Используется для проверки условий и хранения состояния</li>
+      <li>Никогда не заключаем <code>true</code> или <code>false</code> в кавычки</li>
+      <li>Boolean ≠ string, Boolean ≠ number</li>
+      <li>Можно проверять тип через <code>typeof</code></li>
+    </ul>
+
+    <hr>
+
+    <h2>10. Коротко для понимания</h2>
+    <table>
+      <tr>
+        <th>Тип</th>
+        <th>Пример</th>
+        <th>Что это</th>
+      </tr>
+      <tr>
+        <td>boolean</td>
+        <td>true</td>
+        <td>логическое значение: да/нет, правда/ложь</td>
+      </tr>
+      <tr>
+        <td>boolean</td>
+        <td>false</td>
+        <td>логическое значение: да/нет, правда/ложь</td>
+      </tr>
+    </table>
+
+    <p>
+      💡 Если ты понимаешь boolean, ты можешь проверять условия, хранить состояние и понимать логику программы.
+    </p>
+
+    <p>
+      <a href="index.html">⬅ Вернуться к списку тем</a>
+    </p>
+  </div>
+</body>
+</html>
