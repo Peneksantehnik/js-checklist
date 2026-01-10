@@ -1,28 +1,49 @@
+/* === Общие стили для всего проекта === */
 body {
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   background: #eef2f7;
   margin: 0;
   padding: 0;
-}
-
-.container {
-  max-width: 900px;
-  margin: 30px auto;
-  padding: 0 20px;
-}
-
-h1 {
-  text-align: center;
   color: #333;
 }
 
-p {
+a {
+  color: #1976d2;
+  text-decoration: none;
+  transition: all 0.2s ease;
+}
+
+a:hover {
+  color: #0d47a1;
+  text-decoration: underline;
+}
+
+/* === Контейнер === */
+.container, .theory-container {
+  max-width: 900px;
+  margin: 30px auto;
+  padding: 20px;
+}
+
+/* === Заголовки === */
+h1 {
   text-align: center;
-  margin-bottom: 20px;
+  margin-bottom: 10px;
+  color: #333;
+}
+
+h2, h3 {
+  color: #444;
+  margin-top: 25px;
+}
+
+/* === Параграфы и списки === */
+p, li {
+  line-height: 1.6;
   color: #555;
 }
 
-/* Прогресс-бар */
+/* === Прогресс-бар для чек-листа === */
 .progress-container {
   position: relative;
   height: 25px;
@@ -50,7 +71,7 @@ p {
   color: #fff;
 }
 
-/* Секции */
+/* === Секции чек-листа === */
 section {
   background: #fff;
   padding: 20px;
@@ -59,7 +80,7 @@ section {
   box-shadow: 0 4px 10px rgba(0,0,0,0.05);
 }
 
-/* Темы */
+/* === Темы чек-листа === */
 .item {
   display: flex;
   justify-content: space-between;
@@ -76,7 +97,13 @@ label {
   cursor: pointer;
 }
 
-/* Ссылки теория и задания */
+input[type="checkbox"] {
+  margin-right: 10px;
+  transform: scale(1.2);
+  cursor: pointer;
+}
+
+/* === Ссылки теория и задания === */
 .links a {
   margin-left: 10px;
   text-decoration: none;
@@ -87,41 +114,101 @@ label {
 }
 
 .links a.teoria {
-  color: #1976d2;          /* синий */
-  background: #e3f2fd;      /* светлый фон */
+  color: #1976d2;
+  background: #e3f2fd;
 }
 
 .links a.zadanie {
-  color: #388e3c;           /* зелёный */
-  background: #e8f5e9;      /* светлый фон */
+  color: #388e3c;
+  background: #e8f5e9;
 }
 
 .links a.teoria:hover {
-  color: #0d47a1;           /* тёмно-синий при наведении */
+  color: #0d47a1;
   background: #bbdefb;
   text-decoration: none;
 }
 
 .links a.zadanie:hover {
-  color: #1b5e20;           /* тёмно-зелёный при наведении */
+  color: #1b5e20;
   background: #c8e6c9;
   text-decoration: none;
 }
 
-input[type="checkbox"] {
-  margin-right: 10px;
-  transform: scale(1.2);
+/* === Теория === */
+.theory-container {
+  background: #fff;
+  padding: 30px 40px;
+  border-radius: 12px;
+  box-shadow: 0 6px 20px rgba(0,0,0,0.08);
+}
+
+pre {
+  background: #eee;
+  padding: 15px;
+  border-radius: 8px;
+  overflow-x: auto;
+}
+
+code {
+  font-family: 'Courier New', monospace;
+  color: #d32f2f;
+}
+
+.note {
+  background: #fff8e1;
+  border-left: 4px solid #ffb300;
+  padding: 10px 15px;
+  margin: 15px 0;
+  border-radius: 5px;
+}
+
+hr {
+  border: none;
+  border-top: 1px solid #ddd;
+  margin: 30px 0;
+}
+
+/* === Задания === */
+.task {
+  background: #e3f2fd;
+  padding: 15px;
+  margin-bottom: 20px;
+  border-left: 5px solid #1976d2;
+  border-radius: 8px;
+}
+
+.task h3 {
+  margin-top: 0;
+  color: #0d47a1;
+}
+
+.solution {
+  display: none;
+  background: #fff3e0;
+  padding: 10px 15px;
+  border-left: 5px solid #fb8c00;
+  border-radius: 5px;
+  margin-top: 10px;
+  white-space: pre-wrap;
+}
+
+.btn-show {
   cursor: pointer;
+  color: #1976d2;
+  text-decoration: underline;
+  background: none;
+  border: none;
+  padding: 0;
+  font-size: 1em;
 }
 
-/* Отмеченные элементы */
-input[type="checkbox"]:checked + span {
-  text-decoration: line-through;
-  color: #999;
+.btn-show:hover {
+  color: #0d47a1;
 }
 
-/* Hover эффект */
-.item:hover {
+/* === Hover эффект на секции === */
+.item:hover, .task:hover {
   background: #f9f9f9;
   border-radius: 8px;
 }
